@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teste de class binding</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="root">
+    {{mensagem}}
+    <!-- Garante que a informação nao vai ser alterada no front -->
+    <div v-once> {{mensagem}} </div>
+
+    <!-- Adiciona um html -->
+    <div v-html="conteudoEmHtml"></div>
+
+    <!-- Envia um texto -->
+    <div v-text="conteudoEmHtml"></div>
+
+    <!-- deixa o id dinamico -->
+    <div v-bind:id="dynamicId">Div dinamico</div>
+
+    <!-- habilita e desabilita o botao -->
+    <button v-bind:disable="expressaoBooleana">Botao</button>
+    <!-- a sintaxe com array também vale, pode testar :D -->
+
+</div>
+
+<script src="http://unpkg.com/vue"></script>
+
+<script>
+  var app = new Vue({
+    el: '#root',//indicação do id da div principal
+    data: { //declaração de variaveis
+      mensagem: "Hello",
+      conteudoEmHTML: <b>Olha eu aqui</b>, 
+      dynamicId: "divDinamico", 
+      expressaoBooleana: true, 
+      
+    },
+
+    computed: { //depois de processado entra aqui
+   
+    },
+
+    methods: {
+   
+    }
+  });
+
+</script>
+</body>
+</html>
