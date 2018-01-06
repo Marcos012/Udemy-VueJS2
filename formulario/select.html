@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>Selecione a tarefa:</span>
+        <select v-model="selected">
+            <option v-for="task in tasks" v-bind:value="task.name">
+                {{ task.name }}
+            </option>
+        </select><br>
+        <span> {{ selected | json }} </span>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tasks: [
+                { id: 1, name: 'comer' },
+                { id: 2, name: 'beber' },
+                { id: 3, name: 'dormir' }
+            ],
+            selected: ''
+        }
+    });
+
+</script>
+
+</html>
