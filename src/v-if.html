@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app-3">
+        <span v-if="seen">Agora voce me ve</span>
+        <span v-if="!seen">Agora voce não me ve</span> <!--negando um boolean-->
+    </div>
+</body>
+
+<script>
+    var app3 = new Vue({
+        el: '#app-3',
+        data: {
+            seen: true
+        }
+    })
+
+</script>
+
+</html>
