@@ -12,16 +12,16 @@
             <li v-for="fruit in fruits"> {{fruit.name}}</li>
         </ul>
 
-        <input v-on:keyup.enter="Say('Não clique no ENTER')">
-        <input @keyup.enter="Say('Clicou no botão com @Keyup')">
+        <input v-on:keyup.enter="submit('Nao clique no ENTER')" placeholder="Clique no enter">
+        <input @keyup.enter="submit('Clicou no botão com @')" placeholder="Clique no enter">
 
-        <button @click.ctrl="say('Clicou com o Ctrl')">Add Fruta</button>
+        <button @click.ctrl="submit('Clicou com o Ctrl')">Clique com o Ctrl</button>
     </div>
 </body>
 
 <script>
-    new Vue({
-        el:'#app',
+    const app = new Vue({
+        el: '#app',
         data: {
             fruits: [
                 { name: 'Apple' },
@@ -29,14 +29,25 @@
                 { name: 'Orange' }
             ]
         },
-        methods:{
-            say: function (msg){
+        methods: {
+            submit: function (msg) {
+                console.log("testando");
                 alert(msg);
             }
         }
+
     });
-    
+
+
     //Link com metodos: https://vuejs-tips.github.io/cheatsheet/
+
+</script>
+<script>
+    function testar() {
+        console.log("funciona");
+    }
+
+    testar();
 </script>
 
 </html>
