@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="fruit in fruits"> {{fruit.name}}</li>
+        </ul>
+
+        <input v-on:keyup.enter="Say('Não clique no ENTER')">
+        <input @keyup.enter="Say('Clicou no botão com @Keyup')">
+
+        <button @click.ctrl="say('Clicou com o Ctrl')">Add Fruta</button>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            fruits: [
+                { name: 'Apple' },
+                { name: 'Bannana' },
+                { name: 'Orange' }
+            ]
+        },
+        mthods:{
+            say: function (msg){
+                alert(msg);
+            }
+        }
+    });
+    
+    //Link com metodos: https://vuejs-tips.github.io/cheatsheet/
+</script>
+
+</html>
