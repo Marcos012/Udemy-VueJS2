@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="radio" id="Marcos" value="marcos" v-model="checkedNames">
+        <label for="Marcos">Marcos</label>
+
+        <input type="radio" id="Joao" value="Joao" v-model="checkedNames">
+        <label for="Joao">Joao</label>
+
+        <input type="radio" id="Pedro" value="Pedro" v-model="checkedNames">
+        <label for="Pedro">Pedro</label><br>
+
+        <span>Checked Names: {{checkedNames | json}}</span>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: { checkedNames: {} }
+
+    })
+
+</script>
+
+</html>
