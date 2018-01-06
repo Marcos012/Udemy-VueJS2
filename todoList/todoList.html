@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Adicionar Tarefas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!--Lembrem de adicionarem o arquivo JS de vocês-->
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputTask" placeholder="Insira uma tarefa" v-model="inputTask">
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default" @click="addTask">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Tarefas</div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tarefas</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="task in tasks">
+                            <td>{{task.id}}</td>
+                            <td>{{ task.name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" @click="removeTask(task.id)">X
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tasks: [
+                { id: 1, name: 'comer' },
+                { id: 2, name: 'beber' },
+                { id: 3, name: 'dormir' }
+            ],
+            inputTask: ""
+        },
+        methods: {
+            addTask() {
+                if (this.inputTask.trim() != "") { //verifica se o input esta vazio com o trim
+                    this.tasks.push({ name: this.inputTask, id: this.tasks.length + 1 }) //adiciona no array
+                    this.inputTask = ""; //deixa o input vazio
+                }
+            },
+            removeTask(id) {
+                for (var i = 0; i < this.tasks.length; i--) {
+                    if (this.tasks[i].id === id) {
+                        this.tasks.splice(i, 1); //remove a tarefa da posição do array pelo splice
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+</html>
