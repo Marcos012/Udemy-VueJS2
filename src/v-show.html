@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Esconde e mostra os itens sem remover do DOM -->
+        <ul v-show="true">
+            <li v-for="fruit in fruits"> {{fruit.name}}</li>
+        </ul>
+
+        <input v-on:keyup.enter="submit('Nao clique no ENTER')" placeholder="Clique no enter">
+        <input @keyup.enter="submit('Clicou no botao com @')" placeholder="Clique no enter">
+        <input @keyup.enter.ctrl="submit('Clicou com o Ctrl + Enter')" placeholder="Clique Ctrl + enter">
+
+        <button @click.ctrl="submit('Clicou com o Ctrl')">Clique com o Ctrl</button>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            fruits: [
+                { name: 'Apple' },
+                { name: 'Bannana' },
+                { name: 'Orange' }
+            ]
+        },
+        methods: {
+            submit: function (msg) {
+                console.log("testando");
+                alert(msg);
+            }
+        }
+
+    });
+
+
+    //Link com metodos: https://vuejs-tips.github.io/cheatsheet/
+
+</script>
+
+</html>
