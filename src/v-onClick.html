@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <!-- Ao clicar no botao executa a função entre """ -->
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        <!-- botao com @ ao inves de v-on: -->
+       <button @click="alertMessage">Alert Diferenciado</button>
+
+
+    </div>
+</body>
+
+<script>
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('');
+            },
+             alertMessage: function () {
+                alert('alert do botao com @');
+            }
+        }
+    })
+
+</script>
+
+</html>
