@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+<!--
+http://bulma.io/
+https://cdnjs.com/libraries/bulma
+-->
+
+<div id="root" class="container">
+    <progresso inline-template>
+        <div>
+            <h1> Concluído {{ porcentagemProgresso }} %</h1>
+            <button @click="porcentagemProgresso += 10" > Mais 10</button>
+        </div>
+    </progresso>
+
+</div>
+
+
+<!--<script src="https://unpkg.com/vue"></script>-->
+<!--<script src="https://unpkg.com/vue@2.2.6"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
